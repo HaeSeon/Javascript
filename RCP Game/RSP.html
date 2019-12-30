@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+	<title>201611097 이해선</title>
+
+	<style type="text/css">
+#wrap{width:1000px; height:700px; background:pink; margin:auto;}
+#header{width:900px; height:40px; margin-left:50px; margin-bottom:10px; }
+#middle{width:1000px; float:left; }
+#user{width:446px;height:450px; float:left; margin-left:50px; margin-right:10px; background-color: mistyrose }
+#computer{width:446px; height:450px;float:left; background-color:   mistyrose }
+#footer{width:900px; height:300px; float:left; margin-left:50px; margin-top:10px; }
+
+h1 {text-align: center; font-family:맑은 고딕,바탕,굴림체; color: darkslategray;}
+
+</style>
+
+<script type="text/javascript">
+
+var d1=new Image()
+	d1.src="paper.png"
+var d2=new Image()
+	d2.src="rock.png"
+var d3=new Image()
+	d3.src="scissors.png"
+
+function PlayRock(){
+var comp=Math.floor(Math.random() * 3+1);
+document.images["cp"].src=eval("d"+comp+".src")
+document.images["ps"].src=eval("d2.src")
+if (comp==1) {
+	result.innerHTML="졌습니다 Loser~~"
+}
+if (comp==2) {
+	result.innerHTML="비겼습니다 Draw!!"
+}
+if (comp==3) {
+	result.innerHTML="이겼습니다 Winner~~"
+}
+}
+function PlayPaper(){
+var comp=Math.floor(Math.random() * 3+1);
+document.images["cp"].src=eval("d"+comp+".src")
+document.images["ps"].src=eval("d1.src")
+if (comp==1) {
+	result.innerHTML="비겼습니다 Draw!!"
+}
+if (comp==2) {
+	result.innerHTML="이겼습니다 Winner~~"
+}
+if (comp==3) {
+	result.innerHTML="졌습니다 Loser~~"
+}
+}
+function PlayScissors(){
+var comp=Math.floor(Math.random() * 3+1);
+document.images["cp"].src=eval("d"+comp+".src")
+document.images["ps"].src=eval("d3.src")
+if (comp==1) {
+	result.innerHTML="이겼습니다 Winner~~"
+}
+if (comp==2) {
+	result.innerHTML="졌습니다 Loser~~"
+}
+if (comp==3) {
+	result.innerHTML="비겼습니다 Draw!!"
+}
+}
+
+
+</script>
+
+
+</head>
+<body>
+
+<div id="wrap">
+   <div id="header">
+   	<h1 style="background-color: skyblue">가위바위보 게임</h1>
+   </div>
+   <div id="middle">
+       <div id="user" align="center">
+       	<h1>사람</h1>
+       	<img name="ps" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=320%C3%97320&w=320&h=320"  align="center">
+       	</br>
+<center>
+<input type="button"  value="가위" onclick="PlayScissors()">
+<input type="button"   value="바위" onclick="PlayRock()">
+<input type="button"  value="보"onclick="PlayPaper()">
+</center>
+
+       </div>
+       <div id="computer" align="center">
+       	<h1>컴퓨터</h1>
+       	<img name="cp" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=320%C3%97320&w=320&h=320" >
+
+       </div>
+   </div>
+   <div id="footer">
+   <h1 style="background-color: skyblue" id="result">게임결과</h1>
+   </div>
+</div>
+
+
+</body>
+</html>
