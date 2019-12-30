@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+	<title>201611097 이해선</title>
+
+<script >
+
+
+var d1=new Image()
+	d1.src="dice1.png"
+var d2=new Image()
+	d2.src="dice2.png"
+var d3=new Image()
+	d3.src="dice3.png"
+var d4=new Image()
+	d4.src="dice4.png"
+var d5=new Image()
+	d5.src="dice5.png"
+var d6=new Image()
+	d6.src="dice6.png"
+
+
+</script>
+
+
+
+</head>
+<body>
+
+<h1>Player 1</h1>
+<img name="mydice1" src="dice1.png"  >
+<h1>Player 2</h1>
+<img name="mydice2" src="dice1.png" >
+<br>
+<input type="button" value="Play Game" onClick="throwdice()"/>
+<h1 id = "header">게임결과</h1>
+
+<script>
+
+function throwdice(){
+var randomdice1=Math.floor(Math.random() * 6+1);
+var randomdice2=Math.floor(Math.random() * 6+1);
+document.images["mydice1"].src=eval("d"+randomdice1+".src")
+
+document.images["mydice2"].src=eval("d"+randomdice2+".src")
+
+if (randomdice1>randomdice2){
+	 var a="Player1이 이겼습니다!!"
+     header.innerHTML = '게임결과<br/>'+a;
+}
+
+if (randomdice1<randomdice2){
+	var b="Player2가 이겼습니다!!"
+header.innerHTML = '게임결과<br/>'+b;	
+}
+if (randomdice1==randomdice2){
+	var c="비겼습니다!!!"
+	header.innerHTML = '게임결과<br/>'+c;
+}
+
+
+}
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
