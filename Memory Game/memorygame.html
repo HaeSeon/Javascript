@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+	<title>201611097이해선</title>
+	<style type="text/css">
+#line1{width:1300px;height:217px;  margin:auto; }
+#line2{width:1300px;height:217px;  margin:auto; }
+#line3{width:1300px;height:217px;  margin:auto; }
+#line4{width:1300px;height:217px;  margin:auto; }
+#line5{width:1300px;height:217px;  margin:auto; }
+
+
+</style>
+
+
+</head>
+<body>
+
+ <script type="text/javascript">
+var d1=new Image()
+	d1.src="carrots1.jpg"
+var d2=new Image()
+	d2.src="carrots2.jpg"
+var d3=new Image()
+	d3.src="fuchs.jpg"
+var d4=new Image()
+	d4.src="goose.jpg"
+var d5=new Image()
+	d5.src="maple.jpg"
+var d6=new Image()
+	d6.src="orange_juice.jpg"
+var d7=new Image()
+	d7.src="plants.jpg"
+var d8=new Image()
+	d8.src="squirrel.jpg"
+var d9=new Image()
+	d9.src="tomatoes.jpg"
+var d10=new Image()
+	d10.src="wooden_swing.jpg"
+var d11=new Image()
+	d11.src="carrots1.jpg"
+var d12=new Image()
+	d12.src="carrots2.jpg"
+var d13=new Image()
+	d13.src="fuchs.jpg"
+var d14=new Image()
+	d14.src="goose.jpg"
+var d15=new Image()
+	d15.src="maple.jpg"
+var d16=new Image()
+	d16.src="orange_juice.jpg"
+var d17=new Image()
+	d17.src="plants.jpg"
+var d18=new Image()
+	d18.src="squirrel.jpg"
+var d19=new Image()
+	d19.src="tomatoes.jpg"
+var d20=new Image()
+	d20.src="wooden_swing.jpg"
+
+
+var arr=new Array(d1, d2, d3, d4, d5, d6, d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20)
+
+
+
+
+Array.prototype.shuffle = function(){ 
+ if(this instanceof Array)
+ {
+  var len = this.length;
+  if(len == 1) return this;
+  var i = len * 2;
+  while(i > 0)
+  {
+   var idx1 = Math.floor(Math.random()* len);
+   var idx2 = Math.floor(Math.random()* len);
+   if(idx1 == idx2) continue;
+   var temp = this[idx1];
+   this[idx1] = this[idx2];
+   this[idx2] = temp;
+   i--;
+  }
+ }
+ else
+ {
+  alert("No Array Object");  
+ } 
+ return this;
+}
+var variable=false;
+arr.shuffle();
+
+ 	function ResetGames(){
+ 		arr.shuffle();
+ 		if (variable==true) {
+ 			for (var i = 0; i <20;  i++) {
+ 				if(!arr[i]){continue;}
+	  document.images["a"+i].src=eval("arr[i].src"); 
+	}
+
+ 		}
+
+
+
+
+
+	
+}
+
+
+	function ShowAllImages(){
+if(change==true){}
+
+else{
+		 variable=true;
+
+
+	for (var i = 0; i <20;  i++) {
+		if(!arr[i]){continue;}
+	  document.images["a"+i].src=eval("arr[i].src"); }
+	  
+	
+}
+	//alert(variable)
+	
+
+}
+
+
+
+
+
+	function HideAllImages(){
+		variable=false;
+
+	for (var i = 0; i <20;  i++) {
+		if(!arr[i]){continue;}
+	  document.images["a"+i].src="playing_card.jpg" 
+	}
+}
+
+
+count1=0;
+function time(){
+ var t=document.getElementById("ss");
+  count1++;
+  ss.innerHTML=count1+"초";
+ 
+
+}
+
+var d;
+count1=0;
+var st=false;
+function NewGame(){
+	var arr=new Array(d1, d2, d3, d4, d5, d6, d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20)
+	ResetGames();
+
+
+	 d=setInterval(time,1000);
+
+     st=true;
+     
+	
+
+ 
+}
+
+
+var change=false;
+
+function ChangeImageBack(num){
+	change=false;
+
+document.images["a"+num].src="playing_card.jpg" 
+document.images["a"+clickA].src="playing_card.jpg" 
+}
+var clickcount=0;
+
+var clickA;
+
+
+
+
+function Click(n){
+
+if(st==true){
+
+ 
+
+if (change==true){}
+
+else if(change==false){
+
+	
+
+    
+clickcount+=1;	
+
+	if (variable==false){
+document.images["a"+n].src=eval("arr[n].src");
+}
+
+
+
+
+
+if (clickcount==1)
+    {clickA=n}
+
+else if (clickcount==2){
+
+	if (clickA==n){alert("다른 카드를 누르세요!!!!");
+                if(variable==false){
+                	change=true;
+                	setTimeout(ChangeImageBack, 1000, n);
+                  }
+                clickcount=0;
+                }
+
+
+    else{
+    	 if (arr[n].src==document.images["a"+clickA].src)
+		{
+
+
+
+
+			document.images["a"+n].src="transparent.png"
+		document.images["a"+clickA].src="transparent.png"
+		delete arr[n];
+		delete arr[clickA];
+	
+
+		clickcount=0;
+
+		if(!arr[0]&&!arr[1]&&!arr[2]&&!arr[3]&&!arr[4]&&!arr[5]&&!arr[6]&&!arr[7]&&!arr[8]&&!arr[9]&&!arr[10]&&!arr[11]&&!arr[12]&&!arr[13]&&!arr[14]&&!arr[15]&&!arr[16]&&!arr[17]&&!arr[18]&&!arr[19])
+                
+              {clearTimeout(d); 
+              	alert("게임이 끝났습니다\n"+"게임결과:"+count1+"초")
+
+          
+      }
+
+
+	    }
+
+		else {
+				if(variable==true){
+			clickcount=0;}
+				else if(variable==false){
+					change=true;
+			setTimeout(ChangeImageBack, 1000, n);
+		   }
+		    clickcount=0;}
+         }
+
+
+
+}
+}
+}
+
+}
+
+
+
+
+
+
+ 
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="wrap">
+    <div id="line1">
+		<img name="a0" id="aaaa" src="playing_card.jpg" width="320" height="213"  onclick="Click(0)">
+		<img name="a1" src="playing_card.jpg" width="320" height="213" onclick="Click(1)">
+		<img name="a2" src="playing_card.jpg" width="320" height="213" onclick="Click(2)">
+		<img name="a3" src="playing_card.jpg" width="320" height="213" onclick="Click(3)">
+		</div>
+	<div id="line2">
+		<img name="a4" src="playing_card.jpg" width="320" height="213" onclick="Click(4)">
+		<img name="a5" src="playing_card.jpg" width="320" height="213" onclick="Click(5)">
+		<img name="a6" src="playing_card.jpg" width="320" height="213" onclick="Click(6)">
+		<img name="a7" src="playing_card.jpg" width="320" height="213" onclick="Click(7)">
+	</div>
+	
+	<div id="line3">
+		<img name="a8" src="playing_card.jpg" width="320" height="213" onclick="Click(8)">
+		<img name="a9" src="playing_card.jpg" width="320" height="213" onclick="Click(9)">
+		<img name="a10" src="playing_card.jpg" width="320" height="213" onclick="Click(10)">
+		<img name="a11" src="playing_card.jpg" width="320" height="213" onclick="Click(11)">
+	</div>
+
+	<div id="line4">
+		<img name="a12" src="playing_card.jpg" width="320" height="213" onclick="Click(12)">
+		<img name="a13" src="playing_card.jpg" width="320" height="213" onclick="Click(13)">
+		<img name="a14" src="playing_card.jpg" width="320" height="213" onclick="Click(14)">
+		<img name="a15" src="playing_card.jpg" width="320" height="213" onclick="Click(15)">
+	</div>
+
+	<div id="line5">
+		<img name="a16" src="playing_card.jpg" width="320" height="213" onclick="Click(16)">
+		<img name="a17" src="playing_card.jpg" width="320" height="213" onclick="Click(17)">
+		<img name="a18" src="playing_card.jpg" width="320" height="213" onclick="Click(18)">
+		<img name="a19" src="playing_card.jpg" width="320" height="213" onclick="Click(19)">
+	</div>
+
+	<div id="bt">
+	<center>
+		<input type="button"   value="Show all image" onclick="ShowAllImages()">
+		<input type="button"  value="Hide all image"onclick="HideAllImages()">
+		<input type="button"  value="New Game"onclick="NewGame()">
+	</center>
+
+	<div>
+     <center><h1 id="ss">0초</h1></center>
+	</div>
+		
+	</div>
+
+</div>
+<script type="text/javascript">
+
+</script>>
+
+</body>
+</html>
